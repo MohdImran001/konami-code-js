@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Konami Code</title>
+    <style>
+    
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            padding: 30px 10px 30px 10px;
+            background: white;
+            border-radius: 5px;
+            margin: 200px 150px 0 150px;
+            box-shadow: 10px 10px 35px -12px rgba(0,0,0,0.75);
+        }
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div>
+            <h1>Enter KONAMI CODE to change background colors</h1>
+    </div>
+    
+    <script>
+        var x = []
+        var secretCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowLeft", "ArrowRight", "ArrowRight", "b", "a"]
+        window.addEventListener('keyup', (e) => { 
+           
+            x.push(e.key)
+            x.splice(-secretCode.length-1 , x.length - secretCode.length)
+           //console.log(x)
+           
+           if(x.join('').includes(secretCode.join(''))) {
+
+               var body = document.querySelector('body')
+               colors = ['#ff2052', '#20ff5e', '#5e20ff', '#c1ff20', '#ff5e20', '#ce20ff', '#2052ff', '#20ffcd', '#ffcd20']
+               var random = Math.floor(Math.random() * 10)
+               //console.log(colors[random])
+               body.style.backgroundColor = colors[random]
+           
+           }
+        })
+    </script>
+</body>
+</html>
